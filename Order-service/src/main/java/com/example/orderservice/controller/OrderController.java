@@ -1,9 +1,6 @@
 package com.example.orderservice.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Dilan
@@ -18,5 +15,11 @@ public class OrderController {
     @GetMapping
     public String test(){
         return "In order service";
+    }
+
+    @PostMapping("/save")
+    public String save(String name){
+        System.err.println(name);
+        return "In order service"+name;
     }
 }

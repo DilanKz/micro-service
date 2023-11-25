@@ -29,4 +29,11 @@ public class UserController {
         return restTemplate.getForObject("http://localhost:8082/app/order",String.class);
     }
 
+    //trying param as
+    @GetMapping("/update")
+    public String callback(String name){
+        System.err.println(name);
+        return restTemplate.postForObject("http://localhost:8082/app/order/save?name="+name,name,String.class);
+    }
+
 }
