@@ -1,5 +1,6 @@
 package com.example.orderservice.controller;
 
+import com.example.orderservice.dto.OrderDTO;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,5 +22,11 @@ public class OrderController {
     public String save(String name){
         System.err.println(name);
         return "In order service"+name;
+    }
+
+    @PostMapping("/add")
+    public String save(@RequestBody OrderDTO orderDTO){
+        System.err.println(orderDTO);
+        return "In order service"+orderDTO;
     }
 }
