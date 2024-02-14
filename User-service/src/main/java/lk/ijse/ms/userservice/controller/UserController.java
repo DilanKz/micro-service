@@ -42,12 +42,7 @@ public class UserController {
     @PostMapping("/add")
     public String save(@RequestBody OrderDTO orderDTO) throws JsonProcessingException {
         System.err.println(orderDTO);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<OrderDTO> requestEntity = new HttpEntity<>(orderDTO, headers);
-
-        return restTemplate.postForObject("http://localhost:8082/app/order/add",requestEntity,String.class);
+        return restTemplate.postForObject("http://localhost:8082/app/order/add",orderDTO,String.class);
     }
 
 }
