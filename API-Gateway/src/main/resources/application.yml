@@ -1,0 +1,23 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: user-service
+            uri: lb://user-service
+            predicates:
+              - Path=/app/user/**
+          - id: user-service
+            uri: lb://user-service
+            predicates:
+                - Path=/app/order/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defualzone: http//localhost:8761
