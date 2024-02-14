@@ -27,6 +27,8 @@ public class OrderController {
     @PostMapping("/add")
     public String save(@RequestBody OrderDTO orderDTO){
         System.err.println(orderDTO);
-        return "In order service"+orderDTO;
+
+        orderDTO.setDate("2022");
+        return "In order service "+orderDTO;
     }
 }
